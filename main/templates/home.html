@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<main >
+    <div class="img-box">
+      <img src="" alt="" id="img-box-img" />
+    </div>
+    <div class="main-txt">
+      <article>
+        <h1>Salut les étoiles du CPPA !</h1>
+  
+      <p>
+        C'est le moment de reconnaître les éclats de votre brillance ! Cette année,
+        nous voulons célébrer ce qui rend chacun d'entre vous extraordinaire. Des
+        esprits les plus vifs aux cœurs les plus généreux, des talents les plus
+        éclatants aux personnalités les plus attachantes, c'est à vous de désigner
+        ceux qui méritent d'être distingués.
+      </p>
+      <p>
+        Alors, partagez votre voix, honorez vos pairs et ensemble, créons des
+        souvenirs qui illumineront notre parcours au CPPA !
+      </p>
+  
+      <p>À vos votes, prêts, partez !</p>
+  
+      <h2>L'équipe du Bureau des Élèves du CPPA</h2>
+  
+      </article>
+  </div>
+  
+    
+      <button
+            class="bg-white text-blue-500 px-4 py-2 rounded-md font-semibold hover:bg-blue-400 hover:text-white" onclick="window.location.href = '/votes'"
+          >
+            Voter
+          </button>
+    
+  
+   
+    <script>
+      const img = document.querySelector("#img-box-img");
+      var times_laps = 15000;
+      function change_img() {
+        let s = String(Math.floor(Math.random() * 6 + 1));
+        let image = "/static/Img/Image" + s + ".jpg";
+        img.src = image;
+      }
+      document.onload = change_img();
+      let change_time = setInterval(change_img, times_laps);
+    </script>
+  </main>
+  {%endblock%}

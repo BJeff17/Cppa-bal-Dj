@@ -1,0 +1,45 @@
+<title>Résultats des votes</title>
+<link rel="stylesheet" href="css/style_results.css" />
+<header>
+  <h1>Résultats des votes</h1>
+</header>
+<main>
+  <section class="results">
+    <h2>Résultats par catégorie</h2>
+    <div class="category-buttons">
+      {{#each candidatsParCategorie}}
+        <button class="category-button" data-id="{{@index}}">{{@key}}</button>
+      {{/each}}
+    </div>
+    {{#each topFiveCandidatesByCategory}}
+      <div class="category-results" data-id="{{@index}}">
+        <div class="candidates-container hidden">
+          {{#each this}}
+            <div
+              class="candidate"
+              style="background-color: {{getColor @index}}"
+            >
+              <div class="rank">{{this.rank}}</div>
+              <div class="candidate-info">
+                <div class="candidate-name">
+                  <div class="candidate-photo" >
+                    <img
+                      src="img/{{this.PhotoCandidat}}"
+                      alt="Photo du candidat" style="border-radius: 50%;"
+                    />
+                  </div>
+                  {{this.NomCandidat}}
+                </div>
+                <div class="votes">{{this.NombreVotes}} votes</div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/each}}
+  </section>
+</main>
+<br/>
+<br/>
+<br/>
+<script src="js/script_results.js"></script>

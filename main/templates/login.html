@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+
+<br />
+<br />
+<div class="flex justify-center items-center">
+  <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <h2 class="text-2xl font-semibold mb-4">Connexion</h2>
+    <div class="error">
+    {{error}}
+    </div>
+    <form method="post" action="/login">
+    {% csrf_token %}
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username"
+          >Username</label
+        >
+        <input
+          class="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:border-blue-400"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Entrez le Username"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password"
+          >Mot de passe</label
+        >
+        <input
+          class="border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:border-blue-400"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Votre mot de passe"
+          required
+        />
+      </div>
+      <div class="flex justify-between items-center">
+        <button
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Se connecter
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock main %}

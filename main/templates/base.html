@@ -1,0 +1,138 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static '/css/home.css' %}" />
+
+    <script src="{% static '/js/header.js' %}"></script>
+    <title>Bal CPPA 2024</title>
+    
+
+  </head>
+  <body >
+    <style>
+        input{
+          border: 0.1px black solid;
+        }
+      </style>
+      <nav class="bg-blue-900 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="/" class="text-white font-semibold text-lg">CPPA-bal 2024</a>
+          <button
+            id="menu-toggle"
+            class="block text-white focus:outline-none"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div
+        id="menu"
+        class="bg-blue-900 h-full w-64 fixed top-0 left-0 z-10 hidden lg:block transition-transform ease-out duration-300"
+      >
+        <ul class="mt-4">
+          <li>
+            <a
+              href="/"
+              class="text-white block px-4 py-2 hover:bg-blue-700"
+            >Accueil</a>
+          </li>
+          <li>
+            <a
+              href="/votes"
+              class="text-white block px-4 py-2 hover:bg-blue-700"
+            >Votes</a>
+          </li>
+        </ul>
+        <div class="mt-auto px-4 py-2">
+          <button
+            class="bg-white text-blue-500 px-4 py-2 rounded-md font-semibold hover:bg-blue-400 hover:text-white"
+            onclick="window.location.href = '/logout'"
+          >Se deconnecter</button>
+        </div>
+        {%if isadmin %}
+          <ul class="mt-4">
+            <li class="option">
+              <a
+                class="text-white block px-4 py-2 hover:bg-blue-700"
+                href="/addCategorie"
+              >Ajouter une catégorie</a>
+            </li>
+            <li class="option">
+              <a
+                class="text-white block px-4 py-2 hover:bg-blue-700"
+                href="/addUser"
+              >Ajouter un utilisateur</a>
+            </li>
+            <li class="option">
+              <a
+                class="text-white block px-4 py-2 hover:bg-blue-700"
+                href="/addAdmin"
+              >Ajouter un admin</a>
+            </li>
+            <li class="option">
+              <a
+                class="text-white block px-4 py-2 hover:bg-blue-700"
+                href="/addCandidat"
+              >Ajouter un candidat</a>
+            </li>
+            <li class="option">
+              <a
+                class="text-white block px-4 py-2 hover:bg-blue-700"
+                href="/results"
+              >Voir les résultats</a>
+            </li>
+          </ul>
+          <div class="mt-auto px-4 py-2">
+            <button
+              class="bg-white text-blue-500 px-4 py-2 rounded-md font-semibold hover:bg-blue-400 hover:text-white"
+              onclick="window.location.href = '/adminPanel'"
+            >AdminPanel</button>
+          </div>
+        {% endif %}
+      </div>
+      
+      
+    {% block main %}
+        
+    {% endblock main %}
+    <br>
+    <br>
+    <br>
+    <footer class="bg-gray-800 w-full text-gray-300 py-4 fixed bottom-0">
+          <div class="container mx-auto ">
+            <ul class="flex space-x-4">
+              <li>
+                <a href="/" class="hover:text-blue-500">Accueil</a>
+              </li>
+              <li>
+                <a href="/propos" class="hover:text-blue-500"
+                  >À propos</a
+                >
+              </li>
+              <li><a href="https://www.instagram.com/bde.cppa/" class="hover:text-blue-500">#bde-CPPA</a></li>
+            </ul>
+            <p class="text-sm">© 2024 BDE-CPPA. Tous droits réservés.</p>
+            
+          </div>
+        </footer>
+</body>
+</html>

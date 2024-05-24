@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<link rel="stylesheet" href="{% static '/css/votes.css' %}" />
+<h2
+  class="text-blue-700 block px-10 py-2"
+  style="font-family: Lobster; font-size: larger"
+>
+  Toutes les categories
+</h2>
+<div class="cat-container">
+  {% for categorie in categories %}
+  <div
+    class="cat"
+    style="background-color: rgba(255, 34, 174, 0.267)"
+    onclick="window.location.href = '/categories/{{categorie.name}}'"
+  >
+    <div class="cat-info">
+      <div class="cat_name">
+        <div
+          class="img_box"
+          style="background-image: url('{{categorie.image.url}}'); background-size:cover; background-position:center;"
+        ></div>
+        {{categorie.name}}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock main %}

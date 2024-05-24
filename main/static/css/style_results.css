@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: rgba(30,58,138,1);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.category-buttons {
+    margin-bottom: 20px;
+}
+
+.category-button {
+    background-color: rgba(30,58,138,1);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.category-button:hover {
+    background-color: rgba(30, 59, 138, 0.766);
+}
+
+.candidates-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.candidate {
+    width: calc(20% - 20px);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    position: relative;
+    animation: slideIn 0.5s ease;
+}
+
+.rank {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 5px;
+    border-radius: 50%;
+    color: #171010;
+}
+
+.candidate-info {
+    margin-top: 30px;
+    color: black
+}
+
+.candidate-name {
+    font-weight: bold;
+}
+
+.votes {
+    font-size: 14px;
+    color: #171010;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.candidate-info img {
+    width: 150px; 
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .candidate {
+        width: 100%;
+        
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    .candidate {
+        width: 100%;
+        
+    }
+}

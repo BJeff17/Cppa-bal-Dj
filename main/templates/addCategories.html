@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    
+    
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="{% static '/css/style_addCandidats.css' %} ">
+
+
+    <header>
+        <h1>Add Categories</h1>
+    </header>
+    <main>
+        {%if check%}
+            <script>
+                alert("ajouter avec succes")
+                window.location.href = "/addCategorie"
+
+            </script>
+        {% endif%}
+        <section class="add-candidate">
+            <h2>Ajouter une catégorie</h2>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="nom">Nom de la Catégorie:</label>
+                <input type="text" id="nom" name="nom" required>
+                <label for="photo">Photo :</label>
+                <input type="file" id="photo" name="photo" accept="image/*" onchange="previewImage(event)">
+                <div id="preview"></div> 
+                <button type="submit">Ajouter</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        // Fonction pour prévisualiser la photo sélectionnée
+        function previewImage(event) {
+            var preview = document.getElementById('preview');
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function() {
+                var img = document.createElement('img');
+                img.src = reader.result;
+                img.style.maxWidth = '100px'; // Ajustez la taille maximale de la photo selon vos besoins
+                preview.innerHTML = ''; // Supprimer les anciennes prévisualisations
+                preview.appendChild(img);
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+        
+    </script>
+{% endblock main %}

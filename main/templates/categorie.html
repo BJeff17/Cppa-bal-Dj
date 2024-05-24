@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<link rel="stylesheet" href="{% static '/css/votes.css' %}" />
+
+<h1
+  class="text-blue-700 block px-10 py-2"
+  style="font-family: Lobster;font-size:larger"
+>Votez pour {{categorie}}</h1>
+<form action="/vote/{{categorie}}/">
+  <div class="cat-container">
+    {% for candidat in candidats %}
+      <div class="cat" >
+        <label for="{{candidat.name}}">
+
+          <div class="cat-info">
+            <div class="cat_name">
+              <div
+                class="img_box"
+                style="background-image: url('{{candidat.image.url}}'); background-size:cover; background-position:center;"
+              >
+              </div>
+              <div class="name_choice">
+                {{candidat.name}}
+                <input
+                  type="radio"
+                  class="radio"
+                  name="candidat"
+                  id="{{candidat.name}}"
+                  value="{{categorie.name}}/{{candidat.name}}"
+                  {{candidat.status}}
+                />
+              </div>
+            </div>
+
+          </div>
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+</form>
+
+<script>
+  function elu(url){ 
+    
+    fetch(`/categories/${url}`)
+     .catch(e=>{
+  console.log("ca a pété Boss.Il faut prier") }) }
+  document.querySelectorAll(".radio").forEach(e=>{ 
+    e.addEventListener('change',
+  (ev)=>{ elu(e.value)
+   console.log("ok")
+    }) })
+
+</script>
+{% endblock main %}
+    

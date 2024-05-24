@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: rgba(30,58,138,1);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.add-candidate, .view-results {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.add-candidate h2, .view-results h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.add-candidate label, .view-results label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.add-candidate input[type="text"], .add-candidate select, .add-candidate input[type="file"], .view-results button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-candidate button[type="submit"], .view-results button {
+    background-color: rgba(30,58,138,1);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-candidate button[type="submit"]:hover, .view-results button:hover {
+    background-color: rgba(30, 59, 138, 0.812);
+}
+
+#preview {
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table caption {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: rgba(30,58,138,1);
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.candidate-photo img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.hidden {
+    display: none;
+}
+ 

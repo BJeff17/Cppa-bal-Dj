@@ -1,0 +1,40 @@
+<!-- main/templates/main/addUsers.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="{% static 'css/style_add_user.css' %}">
+{% if check %}
+        <script>
+            alert("ajouter avec succes");
+            window.location.href = "/addUser";
+        </script>
+    {% endif %}
+<header>
+    <h1>{% if post == "add-users" %}Ajouter un utilisateur{% else %}Ajouter un admin{% endif %}</h1>
+</header>
+<main id="main-content">
+    <section id="add-user-form">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Mot de passe :</label>
+            <input type="text" id="password" name="password" required>
+            <button type="submit">Ajouter</button>
+        </form>
+    </section>
+    <section id="auto-generate">
+        <h2>Générer automatiquement un utilisateur</h2>
+        <button id="generate-user">Générer</button>
+    </section>
+</main>
+<script src="{% static 'js/script_add_user.js' %}"></script>
+{% if check %}
+    <script>
+        alert("ajouter avec succes")
+        window.location.href = "/addUsers"
+    </script>
+{% endif %}
+{% endblock main %}

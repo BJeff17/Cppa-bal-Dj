@@ -1,28 +1,25 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<title>Admin Panel</title>
+<link rel="stylesheet" href="/static/css/style_adminPanel.css" />
 
-    <title>Admin Panel</title>
-    <link rel="stylesheet" href="css/style_adminPanel.css">
-
-
-    <header>
-        <h1>Admin Panel</h1>
-    </header>
-    <main>
-        <section class="admin-options">
-            <h2>Options d'administration</h2>
-            <div class="option">
-                <a href="/addCategories">Ajouter une catégorie</a>
-            </div>
-            <div class="option">
-                <a href="/addUsers">Ajouter un utilisateur</a>
-            </div>
-            <div class="option">
-                <a href="/addCandidats">Ajouter un candidat</a>
-            </div>
-            <div class="option">
-                <a href="/results">Voir les résultats</a>
-            </div>
-            
-            
-        </section>
-    </main>
-
+<header>
+  <h1>Admin Panel</h1>
+</header>
+<main>
+  <section class="admin-options">
+    <h2>Options d'administration</h2>
+    <div class="option">
+      <a href="/addCategories">Ajouter une catégorie</a>
+    </div>
+    <div class="option">
+      <a href="/addUsers">Ajouter un utilisateur</a>
+    </div>
+    <div class="option">
+      <a href="/addCandidats">Ajouter un candidat</a>
+    </div>
+    <div class="option">
+      <a href="/results">Voir les résultats</a>
+    </div>
+  </section>
+</main>
+{% endblock main %}
